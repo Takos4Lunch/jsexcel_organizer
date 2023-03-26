@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/Takos4Lunch/jsexcel_organizer#readme",
   "dependencies": {
-    "read-excel-file": "^5.6.1"
+    "mysql": "^2.18.1",
+    "read-excel-file": "^5.6.1",
+    "xlsx": "^0.18.5"
   }
 }
