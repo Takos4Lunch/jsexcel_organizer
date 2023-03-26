@@ -1,0 +1,25 @@
+{
+  "name": "jsexcel",
+  "version": "1.0.0",
+  "description": "JS to read excel files, storage them in a DB, then write excel with the result",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Takos4Lunch/jsexcel_organizer.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Takos4Lunch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Takos4Lunch/jsexcel_organizer/issues"
+  },
+  "homepage": "https://github.com/Takos4Lunch/jsexcel_organizer#readme",
+  "dependencies": {
+    "read-excel-file": "^5.6.1"
+  }
+}
