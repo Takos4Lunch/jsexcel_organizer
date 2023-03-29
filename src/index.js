@@ -114,7 +114,7 @@ for(let i = 0; i < newsheets.length; i++)
 //Now, we request all the entries that have a reflection on the other collection
 //Then print it to an excel document
 
-const lastfile = reader.readFile('./test.xlsx')
+const lastfile = reader.readFile('./test_final.xlsx')
 
 //We need to get the Ids first
 //Then, we do the query as we intended before
@@ -127,15 +127,15 @@ let idscollection;
 //       docs.push((element['document_id']*1000+1))
 //    })
 //    console.log(docs)
-   exclient.aggregate([ { $lookup: { from: "exowners", localField: "document_id", foreignField: "document_id", as: "registered" } }, {$match: {registered:[]} }]).exec().then((result) =>{
+   exowner.aggregate([ { $lookup: { from: "exclients", localField: "document_id", foreignField: "document_id", as: "registered" } }, {$match: {registered:[]} }]).exec().then((result) =>{
       let jhon = 0;
       let toexcel = [];
       result.forEach(element =>{
          let arrelement = {
             nombre : element['name'],
             documento: element['document_id'],
-            cantidad: element['amount'],
-            fecha: element['date']
+            cantidad: element['amount']//,
+            //fecha: element['date']
          }
 
          toexcel.push(arrelement)
@@ -146,7 +146,7 @@ let idscollection;
       reader.utils.book_append_sheet(lastfile,ws,"Hoja 1")
      
       //Writing to our file
-      reader.writeFile(lastfile,'./test.xlsx')
+      reader.writeFile(lastfile,'./test_final.xlsx')
    })
 
    let results = exclient.find( { /*document_id : { $nin : docs }*/},{ /*_id: false, __v: false*/},[ { $lookup: { from: "exowners", localField: "document_id", foreignField: "document_id", as: "registered" } }]).exec().then((result)=>{
