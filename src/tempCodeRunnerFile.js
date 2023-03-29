@@ -148,23 +148,3 @@ let idscollection;
       //Writing to our file
       reader.writeFile(lastfile,'./test.xlsx')
    })
-
-   let results = exclient.find( { /*document_id : { $nin : docs }*/},{ /*_id: false, __v: false*/},[ { $lookup: { from: "exowners", localField: "document_id", foreignField: "document_id", as: "registered" } }]).exec().then((result)=>{
-      console.log(result)
-      let obtained = JSON.stringify(result);
-      let transformed = JSON.parse(obtained);
-      
-      //console.log(transformed)
-      //console.log(transformed)
-      // result.forEach(element => {
-      //    console.log(element)//Now we have the results, time to print them
-      // });
-      // const ws = reader.utils.json_to_sheet(transformed)
-      // reader.utils.book_append_sheet(lastfile,ws,"Hoja 2")
-     
-      // // Writing to our file
-      // reader.writeFile(lastfile,'./test.xlsx')
-   });
-// })
-
-[ { $lookup: { from: "exowners", localField: "document_id", foreignField: "document_id", as: "registered" } }, {$match: {registered:[]} }]
