@@ -9,10 +9,6 @@ mongoose.connect('mongodb://localhost:27017/', {
   .then(db => console.log("DB Connected"))
   .catch(err => console.error(err))
 
-  const exclient = require("./models.js")
-
-  const exowner = require("./second_model.js")
-
 //We set up a function to revert the date to a readable format
 
 const excelEpoc = new Date(1900, 0, -1).getTime();
@@ -167,4 +163,4 @@ let idscollection;
    });
 // })
 
-[ { $lookup: { from: "exowners", localField: "document_id", foreignField: "document_id", as: "registered" } }, {$match: {registered:[]} }]
+// [ { $lookup: { from: "exowners", localField: "document_id", foreignField: "document_id", as: "registered" } }, {$match: {registered:[]} }]
